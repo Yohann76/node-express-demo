@@ -1,0 +1,41 @@
+
+<%- include('../pages/header.ejs'); -%> 
+
+<br/>
+<br/>
+
+<div class="container"> <!-- container -->
+
+
+<div class="ui comments">
+    <h3 class="ui dividing header">Commentaires</h3>
+
+    <% for (message of messages) { %>
+        <div class="comment" style="display:flex; padding-left:50px;">
+            <div class="ms-avatar">
+                <a href="/message/<%= message.content %>">
+                    <img class="ms-avatar-img" src="https://randomuser.me/api/portraits/men/1.jpg" alt="..."/>
+                </a>
+            </div>
+            <div class="content" style="padding-left:30px;">
+                <div class="metadata">
+                    <div class="date">
+                        <%= message.created_at.fromNow() %>
+                    </div>
+                </div>
+                <div class="text">
+                    <%= message.content %>
+                </div>
+            </div>
+        </div>
+    <% } %>
+
+</div>
+
+<br/>
+<br/>
+
+</div> <!-- end container -->
+<%- include ('../pages/footer.ejs') %>
+
+
